@@ -1,26 +1,8 @@
-extends:
-  - spectral:oas
-  - governance-rules/governance-rules.yaml  # Include custom governance rules
+extends: ["spectral:oas", "governance-rules/governance-rules.yaml"]
 
 rules:
-  openapi-version:
-    description: "OpenAPI specification must include a version."
-    severity: error
-    given: "$"
-    then:
-      field: "openapi"
-      function: truthy
-
-  info-description:
-    description: "Info object should have a description."
-    severity: warning
-    given: "$.info"
-    then:
-      field: "description"
-      function: truthy
-
-  api-contact:
-    description: "API specifications should include a contact field."
+  info-contact:
+    description: "Info object should contain a contact field."
     severity: warning
     given: "$.info"
     then:
@@ -35,26 +17,23 @@ rules:
       field: "summary"
       function: truthy
 
-  operation-description:
-    description: "Each API operation should have a description."
-    severity: warning
-    given: "$.paths[*][*]"
+  unused-component:
+    description: "Remove unused components from the API spec."
+    severity: info
+    given: "$.components.schemas.*"
     then:
-      field: "description"
-      function: truthy
+      function: unreferenced
 
-  operation-tags:
-    description: "Each API operation should have at least one tag."
-    severity: warning
+  missing-tags:
+    description: "Operations should include a 'tags' field for better categorization."
+    severity: error
     given: "$.paths[*][*]"
     then:
       field: "tags"
       function: truthy
 
-  response-schema:
-    description: "Responses should have a defined schema."
-    severity: error
-    given: "$.paths[*][*].responses[*]"
-    then:
-      field: "content.application/json.schema"
-      function: truthy
+formats:
+  - oas2
+  - oas3
+
+functionsDir: governance-rules/functions

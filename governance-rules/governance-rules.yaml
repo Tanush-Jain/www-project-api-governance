@@ -22,3 +22,10 @@ rules:
     then:
       field: "summary"
       function: truthy
+
+  unused-component:
+    description: "Unused components should be removed."
+    severity: info
+    given: "$.components.schemas.*"
+    then:
+      function: unreferenced
