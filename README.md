@@ -1,32 +1,100 @@
-# API Governance Project
+# **API Governance Project**  
 
-Welcome to the API Governance Project, an open-source initiative dedicated to enhancing the quality, consistency, and compliance of APIs within organizations. This project utilizes the [AML Modeling Framework (AMF)](https://github.com/aml-org/amf) to effectively parse, generate, and validate API specifications, thereby facilitating robust API governance.
+Welcome to the **API Governance Project**, an open-source initiative focused on improving the **quality, consistency, and compliance** of APIs. This project leverages the **AML Modeling Framework (AMF)** to efficiently **parse, generate, and validate** API specifications, ensuring robust API governance and adherence to industry standards.  
 
-## Features
+## 🚀 **Features**  
 
-- **Comprehensive Metadata Parsing**: Leverage AMF to parse various API specifications, including RAML, OpenAPI, and AsyncAPI, into a unified metadata graph.&#8203;:contentReference[oaicite:0]{index=0}
+✔ **Comprehensive API Specification Parsing**  
+- Supports **RAML, OpenAPI (OAS) 2.0/3.0, AsyncAPI 2.0, JSON-LD (AMF model)**  
+- Transforms API specifications into a structured metadata graph  
 
-- **Validation and Compliance**
+✔ **Validation and Compliance**  
+- Ensures APIs adhere to **best practices** and **organization-wide policies**  
+- Identifies inconsistencies and enforces compliance with defined API standards  
 
-- **Extensible Framework**
+✔ **Extensible & Scalable**  
+- Supports **custom AML-defined models** for extending API governance  
+- Plugin-based system to add support for additional formats  
 
-## Getting Started
+---
 
-### AMF 
-AMF natively supports the following formats:
+## 📖 **Getting Started**  
 
-YAML
-JSON
-the following semantic models:
+1️⃣ Prerequisites  
+Before setting up the project, ensure you have:  
+- **Node.js** (v16 or later)  
+- **npm** or **yarn**  
+- **Git**  
 
-WebApi (or "Web APIs" as in "APIs accessible over the network")
-AsyncApi
-and the following syntactic models:
+2️⃣ Installation  
+Clone the repository and install dependencies:  
+```bash
+git clone https://github.com/Naman8kumar/www-project-api-governance.git
+cd api-governance
+npm install  # or yarn install
+```
 
-JSON-LD "AMF model"
-RAML 0.8 / 1.0 (mapped to "WebApi")
-OpenAPI (OAS) 2.0 / 3.0 (mapped to "WebApi")
-AsyncAPI 2.0 (mapped to "AsyncApi")
-The models above and any other models may be extended and supported via custom AML-defined models. Other formats and models that cannot be expressed with AML may also be supported via plugins.
+3️⃣ Running the Project  
+To start the API Governance framework, use:  
+```bash
+npm start
+```
+This initializes the governance tools, allowing interaction with API validation features.
 
+4️⃣ API Linting  
+To ensure API specifications follow best practices, run:  
+```bash
+npm run lint:api
+```
 
+📂 Project Structure  
+```
+api-governance/
+│── assets/           
+│── docs/                  # 📄 Documentation  
+│   ├── validation.md      # API Validation Rules  
+│── .spectral.yaml         # 🔧 Linting Configuration  
+│── api-governance-config.json  # 🔧 Custom Governance Config  
+│── README.md              
+│── CONTRIBUTING.md       
+│── LICENSE.md            
+│── SECURITY.md            
+│── _config.yml            
+```
+
+🤝 Contributing  
+We welcome contributions! Follow these steps:
+
+1️⃣ Fork the Repository  
+Click the Fork button on GitHub.  
+
+2️⃣ Clone Your Fork  
+```bash
+git clone https://github.com/your-username/www-project-api-governance.git
+cd www-project-api-governance
+```
+
+3️⃣ Create a New Branch  
+```bash
+git checkout -b feature-branch
+```
+
+4️⃣ Make Your Changes & Commit  
+```bash
+git add .
+git commit -m "Added feature XYZ"
+```
+
+5️⃣ Push to GitHub & Submit a PR  
+```bash
+git push origin feature-branch
+```
+
+Then, open a Pull Request (PR) on GitHub and describe your changes.
+
+📜 License  
+This project is licensed under the Apache 2.0 License. See LICENSE.md for details.
+
+🔗 Resources & Documentation  
+- AML Modeling Framework (AMF)  
+- OWASP Official Site
