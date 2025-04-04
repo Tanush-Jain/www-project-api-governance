@@ -1,0 +1,9 @@
+extends: spectral:oas
+rules:
+  info-contact: off # Disable contact info requirement
+  operation-tags: error # Ensure every operation has a tag
+  info-license: warn # Warn if license info is missing
+  openapi-tags: error # Require defined tags in OpenAPI
+  parameter-description: warn # Warn if parameter descriptions are missing
+  operation-operationId-unique: error # Enforce unique operation IDs
+  operation-summary: warn # Warn if an operation summary is missing

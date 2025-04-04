@@ -1,0 +1,57 @@
+{
+  "project": {
+    "name": "API Governance Project",
+    "description": "Configuration file for API Governance validation and metadata rules.",
+    "version": "1.0.0",
+    "maintainers": [
+      {
+        "name": "Naman Kumar",
+        "github": "https://github.com/Naman8kumar"
+      }
+    ]
+  },
+  "apiStandards": {
+    "supportedFormats": ["RAML", "OpenAPI 2.0", "OpenAPI 3.0", "AsyncAPI 2.0", "JSON-LD"],
+    "requiredFields": ["info.title", "info.version", "paths", "components.schemas"],
+    "namingConventions": {
+      "paths": "kebab-case",
+      "parameters": "camelCase",
+      "schemas": "PascalCase"
+    },
+    "securityRequirements": {
+      "authentication": true,
+      "httpsOnly": true,
+      "oauth2Recommended": true
+    }
+  },
+  "validationRules": {
+    "info-title-required": {
+      "description": "Every API spec must have a title defined in the 'info' object.",
+      "severity": "error"
+    },
+    "info-version-semver": {
+      "description": "API version must follow semantic versioning (semver).",
+      "severity": "warn"
+    },
+    "operation-operationId-unique": {
+      "description": "Each operation should have a unique 'operationId'.",
+      "severity": "error"
+    },
+    "no-empty-paths": {
+      "description": "Paths object must not be empty.",
+      "severity": "error"
+    }
+  },
+  "tools": {
+    "lintingEngine": "Spectral",
+    "lintConfigFile": "./docs/validation.yaml"
+  },
+  "scripts": {
+    "validate": "spectral lint ./apispecs/*.yaml",
+    "docs": "open ./docs/validation.md"
+  },
+  "meta": {
+    "lastUpdated": "2025-04-04",
+    "license": "Apache-2.0"
+  }
+}

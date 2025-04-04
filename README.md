@@ -32,50 +32,69 @@ Clone the repository and install dependencies:
 git clone https://github.com/Naman8kumar/www-project-api-governance.git
 cd api-governance
 npm install  # or yarn install
+```
 
-3️⃣ Running the Project
-To start the API Governance framework, use:
+3️⃣ Running the Project  
+To start the API Governance framework, use:  
+```bash
 npm start
+```
 This initializes the governance tools, allowing interaction with API validation features.
 
-📂 Project Structure
+4️⃣ API Linting  
+To ensure API specifications follow best practices, run:  
+```bash
+npm run lint:api
+```
+
+📂 Project Structure  
+```
 api-governance/
 │── assets/           
 │── docs/                  # 📄 Documentation  
 │   ├── validation.md      # API Validation Rules  
+│── .spectral.yaml         # 🔧 Linting Configuration  
+│── api-governance-config.json  # 🔧 Custom Governance Config  
 │── README.md              
 │── CONTRIBUTING.md       
 │── LICENSE.md            
 │── SECURITY.md            
 │── _config.yml            
+```
 
-🤝 Contributing
+🤝 Contributing  
 We welcome contributions! Follow these steps:
 
-1️⃣ Fork the Repository
-Click the Fork button on GitHub.
+1️⃣ Fork the Repository  
+Click the Fork button on GitHub.  
 
-2️⃣ Clone Your Fork
+2️⃣ Clone Your Fork  
+```bash
 git clone https://github.com/your-username/www-project-api-governance.git
 cd www-project-api-governance
+```
 
-3️⃣ Create a New Branch
+3️⃣ Create a New Branch  
+```bash
 git checkout -b feature-branch
+```
 
-4️⃣ Make Your Changes & Commit
+4️⃣ Make Your Changes & Commit  
+```bash
 git add .
 git commit -m "Added feature XYZ"
+```
 
-5️⃣ Push to GitHub & Submit a PR
+5️⃣ Push to GitHub & Submit a PR  
+```bash
 git push origin feature-branch
+```
 
 Then, open a Pull Request (PR) on GitHub and describe your changes.
 
-📜 License
+📜 License  
 This project is licensed under the Apache 2.0 License. See LICENSE.md for details.
 
-🔗 Resources & Documentation
-
-AML Modeling Framework (AMF)
-OWASP Official Site
-
+🔗 Resources & Documentation  
+- AML Modeling Framework (AMF)  
+- OWASP Official Site
