@@ -1,14 +1,14 @@
 rules:
   openapi-version:
-    description: "OpenAPI specification must include a version."
+    description: "The OpenAPI specification must define an 'openapi' version."
     severity: error
     given: "$"
     then:
       field: "openapi"
       function: truthy
 
-  api-contact:
-    description: "API specifications should include a contact field."
+  info-contact:
+    description: "The API info object must include a 'contact' field to facilitate support and ownership."
     severity: warning
     given: "$.info"
     then:
@@ -16,16 +16,24 @@ rules:
       function: truthy
 
   operation-summary:
-    description: "Each API operation should have a summary."
+    description: "Each API operation should provide a 'summary' to improve readability and documentation."
     severity: warning
     given: "$.paths[*][*]"
     then:
       field: "summary"
       function: truthy
 
-  unused-component:
-    description: "Unused components should be removed."
+  unused-components:
+    description: "Remove unused components to keep the API spec clean and maintainable."
     severity: info
     given: "$.components.schemas.*"
     then:
       function: unreferenced
+
+  response-description:
+    description: "Each API response must include a 'description' for clarity and proper documentation."
+    severity: error
+    given: "$.paths[*][*].responses[*]"
+    then:
+      field: "description"
+      function: truthy

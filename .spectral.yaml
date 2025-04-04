@@ -4,7 +4,7 @@ extends:
 
 rules:
   info-contact:
-    description: "The API info object must include a contact field for better support traceability."
+    description: "The API info object must include a 'contact' field to facilitate support and ownership."
     severity: warning
     given: "$.info"
     then:
@@ -12,22 +12,22 @@ rules:
       function: truthy
 
   operation-summary:
-    description: "Each API operation must have a summary to improve documentation."
+    description: "Each API operation must provide a 'summary' to improve documentation and readability."
     severity: warning
     given: "$.paths[*][*]"
     then:
       field: "summary"
       function: truthy
 
-  unused-component:
-    description: "Remove unused schemas/components to keep the spec clean."
+  unused-components:
+    description: "Remove unused schemas/components to keep the API spec clean and efficient."
     severity: info
     given: "$.components.schemas.*"
     then:
       function: unreferenced
 
   missing-tags:
-    description: "Each operation should include a 'tags' field for logical grouping."
+    description: "Each operation must include a 'tags' field for logical categorization and grouping."
     severity: error
     given: "$.paths[*][*]"
     then:
@@ -35,13 +35,21 @@ rules:
       function: truthy
 
   operation-operationId-naming:
-    description: "Enforce camelCase naming convention for operationId."
+    description: "Enforce camelCase naming convention for 'operationId' to maintain consistency."
     severity: error
     given: "$.paths[*][*].operationId"
     then:
       function: pattern
       functionOptions:
         match: "^[a-z]+([A-Z][a-z0-9]+)*$"
+
+  response-description:
+    description: "Each API response must include a 'description' to improve clarity and documentation quality."
+    severity: error
+    given: "$.paths[*][*].responses[*]"
+    then:
+      field: "description"
+      function: truthy
 
 formats:
   - oas2
