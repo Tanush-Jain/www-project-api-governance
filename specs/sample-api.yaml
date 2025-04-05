@@ -1,19 +1,40 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
-  title: Dummy API Spec
-  description: This is a sample API specification for testing Spectral linting GitHub Action.
+  title: Sample User API
   version: 1.0.0
+  description: API for managing users.
+  contact:
+    name: API Support
+    email: support@example.com
+
+servers:
+  - url: https://api.example.com/v1
+
 paths:
-  /hello:
+  /users:
     get:
-      summary: Say hello
+      summary: Retrieve all users
+      description: Gets all users.
+      operationId: getAllUsers
+      tags: [Users]
       responses:
         '200':
-          description: A successful response
+          description: Successfully fetched users.
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
