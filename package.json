@@ -4,11 +4,10 @@
   "description": "OWASP API Governance project to enforce best practices and validate OpenAPI specifications using Spectral.",
   "main": "index.js",
   "scripts": {
-  "lint:api": "npx spectral lint -r .spectral.yaml specs/**/*.yaml",
-  "lint:single": "npx spectral lint -r .spectral.yaml specs/sample-api.yaml",
-  "lint:validate": "npm run lint:api"
-},
-  
+    "lint:api": "spectral lint -r .spectral.yaml specs/**/*.yaml",
+    "lint:single": "spectral lint -r .spectral.yaml specs/sample-api.yaml",
+    "lint:validate": "npm run lint:api"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Naman8kumar/www-project-api-governance.git"
@@ -27,3 +26,4 @@
     "@stoplight/spectral-cli": "^6.1.0"
   }
 }
+

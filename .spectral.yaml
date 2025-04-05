@@ -1,25 +1,24 @@
 extends:
-  - spectral:oas
-  - ./governance-rules/governance-rules.yaml
+  - "spectral:oas"
+  - "./governance-rules/governance-rules.yaml"
 
 formats:
   - oas3
 
-functionsDir: ./governance-rules/functions
+functionsDir: "./governance-rules/functions"
 
 rules:
   info-contact-required:
-    description: "The OpenAPI 'info' object must include a 'contact' field for responsible ownership."
+    description: "Info object must include a contact field."
     severity: error
-    given: $.info
+    given: "$.info"
     then:
-      field: contact
-      function: truthy
+      function: contact-required
 
   operation-summary-required:
-    description: "Every operation must include a 'summary' field to improve documentation clarity."
+    description: "Each operation must include a summary for documentation clarity."
     severity: warn
-    given: $.paths[*][get, post, put, delete, patch]
+    given: "$.paths[*][get,post,put,delete,patch]"
     then:
       field: summary
       function: truthy
