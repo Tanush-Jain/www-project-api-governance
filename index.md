@@ -22,37 +22,6 @@ A lightweight project for enforcing API governance using Spectral. It ensures yo
 
 ---
 
-
-## 🧪 Linting Commands
-
-Install dependencies:
-
-```bash
-npm install
-
-Compile ruleset:
-npm run lint:compile
-
-Lint all API specs:
-npm run lint:api
-
-Lint a single API spec:
-npx spectral lint -r compiled-ruleset.json specs/example-api.yaml
-
-🤝 Contributing
-Fork this repo
-
-Create a new branch
-
-Make changes
-
-Run npm run lint:compile and npm run lint:api
-
-Submit a PR 🎉
-
-📜 License
-Apache 2.0 License
-
 🔗 Resources
 
 OWASP API Security
